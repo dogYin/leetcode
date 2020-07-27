@@ -2,6 +2,7 @@ package structClass.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Description:
@@ -62,6 +63,6 @@ public class PrintTreeNode {
                 System.out.println("乱七八糟的");
 
         }
-        NODE_S.stream().forEach(System.out::print);
+        System.out.println(NODE_S.stream().map(x -> String.valueOf(x)).collect(Collectors.joining(",")));
     }
 }

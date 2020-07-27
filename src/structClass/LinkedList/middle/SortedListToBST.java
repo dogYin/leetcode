@@ -1,9 +1,7 @@
 package structClass.LinkedList.middle;
 
-import structClass.util.ListNode;
-import structClass.util.TreeNode;
+import structClass.util.*;
 
-import java.util.List;
 
 /**
  * @Description:
@@ -40,15 +38,20 @@ public class SortedListToBST {
         if(head == tail){
             return null;
         }
-        ListNode pre = head;
-        ListNode end = head;
-        while (end!=null&&end.next !=null){
-            pre = pre.next;
-            end = end.next.next;
+        ListNode slow = head;
+        ListNode fast= head;
+        while (fast!=tail&&fast.next !=tail){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        TreeNode root = new TreeNode(pre.val);
-        root.left = temp(head,pre);
-        root.right = temp(pre.next,tail);
+        TreeNode root = new TreeNode(slow.val);
+        root.left = temp(head,slow);
+        root.right = temp(slow.next,tail);
         return root;
+    }
+
+    public static void main(String[] args) {
+        ListNode node = GenerateListNode.generate(-10, -3, 0, 5, 9);
+        PrintTreeNode.print(test(node), BTreePrintEnum.PRE);
     }
 }
