@@ -42,7 +42,7 @@ public class LowestCommonAncestor_235 {
         if(p.val > root.val && q.val>root.val)
             return lowestCommonAncestor(root.right,p,q);
         if(p.val < root.val && q.val < root.val)
-            lowestCommonAncestor(root.left,p,q);
+            return lowestCommonAncestor(root.left,p,q);
         return root;
     }
 }
