@@ -26,7 +26,7 @@ import java.util.Map;
  * @Author: jiabin.wang
  * @Date: 2020/7/20 15:08
  */
-public class TwoSum {
+public class  TwoSum {
 
 
     /**
@@ -58,22 +58,19 @@ public class TwoSum {
      * @return
      */
     public static int[] test2(int[] numbers ,int target){
-        int[] res = new int[2];
         int low = 0;
         int high = numbers.length -1;
         while (low<high){
             int temp = numbers[low] + numbers[high];
             if(target == temp){
-                res[0] = low + 1;
-                res[1] = high + 1;
-                break;
+                return new int[]{low+1,high+1};
             }else if(temp < target){
                 ++low;
             }else {
                 --high;
             }
         }
-        return res;
+        return new int[0];
     }
 
     public static void main(String[] args) {
