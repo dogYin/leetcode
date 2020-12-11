@@ -8,6 +8,10 @@ package structClass.util;
 public class PrintListNode {
 
     public static void print(ListNode listNode){
+        if(null == listNode){
+            System.out.println("[]");
+            return;
+        }
         while (listNode!=null){
             System.out.print(listNode.val+"->");
             listNode = listNode.next;
