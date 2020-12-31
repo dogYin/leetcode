@@ -52,13 +52,28 @@ public class Test {
 
 //        ReentrantLock lock = new ReentrantLock();
 
-        System.out.println(text());
-//        ThreadPoolExecutor executor = new ThreadPoolExecutor()
-        Semaphore semaphore = new Semaphore(1);
-        CountDownLatch downLatch = new CountDownLatch(1);
-        ThreadLocal local = new ThreadLocal();
-        LinkedHashMap hashMap = new LinkedHashMap();
+//        System.out.println(text());
+////        ThreadPoolExecutor executor = new ThreadPoolExecutor()
+//        Semaphore semaphore = new Semaphore(1);
+//        CountDownLatch downLatch = new CountDownLatch(1);
+//        ThreadLocal local = new ThreadLocal();
+//        LinkedHashMap hashMap = new LinkedHashMap();
+//        synchronized (hashMap){}
+        ArrayList list = new ArrayList();
+        LinkedList linkedList = new LinkedList();
 
+    }
+
+    int a;
+    volatile int v1 = 1;
+    volatile int v2 = 2;
+
+    void readAndWrite() {
+        int i = v1;           // 第一个 volatile 读
+        int j = v2;           // 第二个 volatile 读
+        a = i + j;            // 普通写
+        v1 = i + 1;          // 第一个 volatile 写
+        v2 = j * 2;          // 第二个 volatile 写
     }
 
     public static boolean text(){
